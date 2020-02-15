@@ -7,12 +7,15 @@ public class Producer implements Runnable {
     int timesAwake;
     Random rand;
     int timesToWakeUp;
+    MinHeap<Node> heap;
 
-    public Producer(int id){
+
+    public Producer(int id, MinHeap heap){
         this.id = id;
         timesAwake = 0;
         rand = new Random();
         timesToWakeUp = rand.nextInt(Config.MAX_NUM_TIMES_WAKEUP - Config.MIN_NUM_TIMES_WAKEUP) + Config.MIN_NUM_TIMES_WAKEUP;
+        this.heap = heap;
     }
 
     public void run() {
@@ -30,7 +33,7 @@ public class Producer implements Runnable {
             System.out.println("Producer " + id + " is adding Nodes");
             int numProcessToAdd = rand.nextInt(Config.MAX_NUM_PROCESSES - Config.MIN_NUM_PROCESSES) + Config.MIN_NUM_PROCESSES;
             for(int i = 0; i < numProcessToAdd; i++){
-                // Add new node to heap
+                heap.insert(Node.generateNewRandomNode());
             }
             timesAwake++;
         }

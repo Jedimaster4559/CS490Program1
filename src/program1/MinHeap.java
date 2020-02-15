@@ -58,6 +58,14 @@ public class MinHeap<E extends Comparable<E>> {
     }
 
     /**
+     * Gets the current size of the heap
+     * @return the number of elements currently in the heap
+     */
+    public int size() {
+        return heap.size();
+    }
+
+    /**
      * Gets the minimum element in the priority queue
      * Does not remove the element from the priority queue
      * @return the minimum element in the priority queue or null if the priority queue is empty
