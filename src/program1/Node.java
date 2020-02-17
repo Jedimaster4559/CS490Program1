@@ -2,7 +2,7 @@ package program1;
 
 import java.util.Random;
 
-public class Node {
+public class Node implements Comparable<Node> {
     private int processID;
     private int priority;
     private int timeSlice;
@@ -48,6 +48,14 @@ public class Node {
 
     public int getTimeSlice(){
         return timeSlice;
+    }
+
+    public int compareTo(Node o){
+        if(this.priority != o.priority){
+            return this.priority - o.priority;
+        } else {
+            return this.processID - o.processID;
+        }
     }
 
     /**
