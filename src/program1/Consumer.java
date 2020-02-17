@@ -22,16 +22,26 @@ public class Consumer implements Runnable {
     public void run() {
         System.out.println("Consumer " + id + " is starting...");
 
-        while (heap.size() >= 1 || finished == false) {
+        while (!heap.isEmpty() || finished == false) {
             // Make sure the heap isn't empty
+            // If it is, then sleep
             if (heap.isEmpty()) {
                 System.out.println("Consumer " + id + " is idle...");
+
+                // Sleep
+                if (heap.isEmpty()) {
+                    int sleepTime = rand.nextInt(Config.MAX_SLEEP_TIME - Config.MIN_SLEEP_TIME) + Config.MIN_SLEEP_TIME;
+                    try {
+                        Thread.sleep(sleepTime);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
             }
 
             else {
-                Node myProcess = heap.minimum();
-
                 // Grabs the next process
+                Node myProcess = heap.minimum();
                 heap.extract();
 
                 // Simulate processing time
