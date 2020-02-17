@@ -18,11 +18,11 @@ public class Program1 {
 
         // Create consumers
         ArrayList<Thread> consumers = new ArrayList<>();
-        for(int i = 0; i < Config.NUM_PRODUCERS; i++) {
+        for(int i = 0; i < Config.NUM_CONSUMERS; i++) {
             Consumer c = new Consumer(i, heap);
-            Thread t = new Thread(c);
-            consumers.add(t);
-            t.start();
+            Thread t2 = new Thread(c);
+            consumers.add(t2);
+            t2.start();
         }
 
         // Check if all producers are complete
