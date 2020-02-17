@@ -29,13 +29,11 @@ public class Consumer implements Runnable {
                 System.out.println("Consumer " + id + " is idle...");
 
                 // Sleep
-                if (heap.isEmpty()) {
-                    int sleepTime = rand.nextInt(Config.MAX_SLEEP_TIME - Config.MIN_SLEEP_TIME) + Config.MIN_SLEEP_TIME;
-                    try {
-                        Thread.sleep(sleepTime);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
+                int sleepTime = rand.nextInt(Config.MAX_SLEEP_TIME - Config.MIN_SLEEP_TIME) + Config.MIN_SLEEP_TIME;
+                try {
+                    Thread.sleep(sleepTime);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
                 }
             }
 
