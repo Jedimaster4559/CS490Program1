@@ -29,7 +29,7 @@ public class Consumer implements Runnable {
                 System.out.println("Consumer " + id + " is idle...");
 
                 // Sleep
-                int sleepTime = rand.nextInt(Config.MAX_SLEEP_TIME - Config.MIN_SLEEP_TIME) + Config.MIN_SLEEP_TIME;
+                int sleepTime = 1000;
                 try {
                     Thread.sleep(sleepTime);
                 } catch (InterruptedException e) {
@@ -39,11 +39,10 @@ public class Consumer implements Runnable {
 
             else {
                 // Grabs the next process
-                Node myProcess = heap.minimum();
-                heap.extract();
+                Node myProcess = heap.extract();
 
                 // Simulate processing time
-                int sleepTime = rand.nextInt(Config.MAX_SLEEP_TIME - Config.MIN_SLEEP_TIME) + Config.MIN_SLEEP_TIME;
+                int sleepTime = myProcess.getTimeSlice();
                 try {
                     Thread.sleep(sleepTime);
                 } catch (InterruptedException e) {
@@ -55,6 +54,7 @@ public class Consumer implements Runnable {
                 System.out.println("Consumer " + id + " finished Process: " + myProcess.getProcessID() + " on " + d1);
             }
         }
+        System.out.println("Consumer " + id + " is Exiting...");
     }
 
     /**
