@@ -9,13 +9,21 @@ public class Program1 {
 
         // Create producers
         ArrayList<Thread> producers = new ArrayList<>();
-        for(int i = 0; i < Config.NUM_PRODUCERS; i++){
+        for(int i = 0; i < Config.NUM_PRODUCERS; i++) {
             Producer p = new Producer(i, heap);
             Thread t = new Thread(p);
             producers.add(t);
             t.start();
         }
 
+        // Create consumers
+        ArrayList<Thread> consumers = new ArrayList<>();
+        for(int i = 0; i < Config.NUM_CONSUMERS; i++) {
+            Consumer c = new Consumer(i, heap);
+            Thread t2 = new Thread(c);
+            consumers.add(t2);
+            t2.start();
+        }
 
         // Check if all producers are complete
         boolean complete = false;
@@ -36,6 +44,7 @@ public class Program1 {
         }
 
         // Notify Consumers that all producers are done
+        Consumer.finish();
 
     }
 }
