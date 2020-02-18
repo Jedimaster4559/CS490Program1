@@ -1,9 +1,16 @@
 package program1;
 
+import program1.ui.UIMain;
+
 import java.util.ArrayList;
 
 public class Program1 {
     public static void main(String[] args){
+        // Initialize GUI
+        UIMain ui = new UIMain();
+        Thread uit = new Thread(ui);
+        uit.start();
+
         // Initialize Heap
         MinHeap<Node> heap = new MinHeap<>();
 
