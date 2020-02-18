@@ -21,13 +21,14 @@ public class Consumer implements Runnable {
 
     public void run() {
         System.out.println("Consumer " + id + " is starting...");
+        if (heap.isEmpty()) {
+            System.out.println("Consumer " + id + " is idle...");
+        }
 
         while (!heap.isEmpty() || finished == false) {
             // Make sure the heap isn't empty
             // If it is, then sleep
             if (heap.isEmpty()) {
-                System.out.println("Consumer " + id + " is idle...");
-
                 // Sleep
                 int sleepTime = 1000;
                 try {
