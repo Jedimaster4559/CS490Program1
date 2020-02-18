@@ -20,15 +20,18 @@ public class Consumer implements Runnable {
     }
 
     public void run() {
+        int empty = 1;
         System.out.println("Consumer " + id + " is starting...");
-        if (heap.isEmpty()) {
-            System.out.println("Consumer " + id + " is idle...");
-        }
 
         while (!heap.isEmpty() || finished == false) {
             // Make sure the heap isn't empty
             // If it is, then sleep
             if (heap.isEmpty()) {
+                if (empty == 1) {
+                    System.out.println("Consumer " + id + " is idle...");
+                    empty = 0;
+                }
+
                 // Sleep
                 int sleepTime = 1000;
                 try {
@@ -39,6 +42,7 @@ public class Consumer implements Runnable {
             }
 
             else {
+                empty = 1;
                 // Grabs the next process
                 Node myProcess = heap.extract();
 
