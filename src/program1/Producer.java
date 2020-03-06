@@ -9,7 +9,11 @@ public class Producer implements Runnable {
     int timesToWakeUp;
     MinHeap<Node> heap;
 
-
+    /**
+     * Creates a new Producer with an id and the heap it should add tasks to
+     * @param id The ID of the new producer
+     * @param heap The heap the Producer should add to
+     */
     public Producer(int id, MinHeap heap){
         this.id = id;
         timesAwake = 0;
@@ -18,6 +22,9 @@ public class Producer implements Runnable {
         this.heap = heap;
     }
 
+    /**
+     * Runs the producer. This adds tasks to the Heap at random times
+     */
     public void run() {
         System.out.println("Producer " + id + " Starting...");
         while(timesAwake < timesToWakeUp) {
@@ -35,6 +42,7 @@ public class Producer implements Runnable {
             for(int i = 0; i < numProcessToAdd; i++){
                 heap.insert(Node.generateNewRandomNode());
             }
+            System.out.println("There are " + heap.size() + " elements in the heap.");
             timesAwake++;
         }
     }

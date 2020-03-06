@@ -1,3 +1,10 @@
+/**
+ * Program 1 for CS 490
+ * @author Nathan Solomon
+ * @auther Jada Blankenship
+ * Built and tested in IntelliJ IDEA 2019.3
+ * Uses Java Version 1.8.0_231
+ */
 package program1;
 
 import java.util.ArrayList;
@@ -10,7 +17,7 @@ public class Program1 {
         // Create producers
         ArrayList<Thread> producers = new ArrayList<>();
         for(int i = 0; i < Config.NUM_PRODUCERS; i++) {
-            Producer p = new Producer(i, heap);
+            Producer p = new Producer(i+1, heap);
             Thread t = new Thread(p);
             producers.add(t);
             t.start();
@@ -19,7 +26,7 @@ public class Program1 {
         // Create consumers
         ArrayList<Thread> consumers = new ArrayList<>();
         for(int i = 0; i < Config.NUM_CONSUMERS; i++) {
-            Consumer c = new Consumer(i, heap);
+            Consumer c = new Consumer(i+1, heap);
             Thread t2 = new Thread(c);
             consumers.add(t2);
             t2.start();
@@ -35,7 +42,7 @@ public class Program1 {
                     break;
                 }
             }
-            System.out.println("There are " + heap.size() + " elements in the heap.");
+            // System.out.println("There are " + heap.size() + " elements in the heap.");
             try {
                 Thread.sleep(1000);
             } catch (InterruptedException e) {
@@ -45,6 +52,5 @@ public class Program1 {
 
         // Notify Consumers that all producers are done
         Consumer.finish();
-
     }
 }

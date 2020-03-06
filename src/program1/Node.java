@@ -50,6 +50,11 @@ public class Node implements Comparable<Node> {
         return timeSlice;
     }
 
+    /**
+     * Compares two nodes
+     * @param o the other node to compare to
+     * @return the difference in priority between the nodes
+     */
     public int compareTo(Node o){
         if(this.priority != o.priority){
             return this.priority - o.priority;
