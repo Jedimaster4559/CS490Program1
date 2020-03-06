@@ -8,7 +8,6 @@ public class Consumer implements Runnable {
     MinHeap<Node> heap;
     static boolean finished = false;
 
-
     /**
      * Constructor
      * @param id is the Consumer's ID
@@ -19,8 +18,15 @@ public class Consumer implements Runnable {
         this.heap = heap;
     }
 
+    /**
+     * Consumes the next item in the min priority queue
+     */
     public void run() {
         int empty = 1;
+        int numComplete = 0;
+        for (int i = 0; i < id; i++) {
+            System.out.print("\t");
+        }
         System.out.println("Consumer " + id + " is starting...");
 
         while (!heap.isEmpty() || finished == false) {
@@ -28,6 +34,9 @@ public class Consumer implements Runnable {
             // If it is, then sleep
             if (heap.isEmpty()) {
                 if (empty == 1) {
+                    for (int i = 0; i < id; i++) {
+                        System.out.print("\t");
+                    }
                     System.out.println("Consumer " + id + " is idle...");
                     empty = 0;
                 }
@@ -56,10 +65,17 @@ public class Consumer implements Runnable {
 
                 // Print out when the process finished
                 Date d1 = new Date();
+                for (int i = 0; i < id; i++) {
+                    System.out.print("\t");
+                }
                 System.out.println("Consumer " + id + " finished Process: " + myProcess.getProcessID() + " on " + d1);
+                numComplete++;
             }
         }
-        System.out.println("Consumer " + id + " is Exiting...");
+        for (int i = 0; i < id; i++) {
+            System.out.print("\t");
+        }
+        System.out.println("Consumer " + id + " exiting - completed " + numComplete + " processes...");
     }
 
     /**
