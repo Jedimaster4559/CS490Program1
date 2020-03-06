@@ -2,7 +2,7 @@
 A simulation of the creation and execution of prioritized processes.<br>
 _Note: This repo is currently marked as private. It will not be made a public repo until
 after 3:00 PM on March 9th, 2020_<br>
-To view this repository, please visit [https://github.com/Jedimaster4559/CS490Program1]
+To view this repository, please visit [https://github.com/Jedimaster4559/CS490Program1](https://github.com/Jedimaster4559/CS490Program1)
 
 ### Testing Environment
 We built and tested this program using the following environments:
