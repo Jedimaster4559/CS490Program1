@@ -1,3 +1,7 @@
+/**
+ * This config file contains and values you may want to change while testing the program.
+ * Feel free to change these values to change how the program behaves.
+ */
 package program1;
 
 public class Config {
@@ -10,7 +14,7 @@ public class Config {
     public static int NUM_CONSUMERS = 2;
 
     // Producer Config values
-    public static int NUM_PRODUCERS = 2;
+    public static int NUM_PRODUCERS = 1;
     public static int MIN_NUM_TIMES_WAKEUP = 3;
     public static int MAX_NUM_TIMES_WAKEUP = 10;
     public static int MIN_NUM_PROCESSES = 10;

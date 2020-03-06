@@ -1,3 +1,10 @@
+/**
+ * Program 1 for CS 490
+ * @author Nathan Solomon
+ * @auther Jada Blankenship
+ * Built and tested in IntelliJ IDEA 2019.3
+ * Uses Java Version 1.8.0_231
+ */
 package program1;
 
 import java.util.ArrayList;
@@ -35,7 +42,7 @@ public class Program1 {
                     break;
                 }
             }
-            System.out.println("There are " + heap.size() + " elements in the heap.");
+            // System.out.println("There are " + heap.size() + " elements in the heap.");
             try {
                 Thread.sleep(1000);
             } catch (InterruptedException e) {
