@@ -25,7 +25,7 @@ public class Consumer implements Runnable {
         int empty = 1;
         int numComplete = 0;
         for (int i = 0; i < id; i++) {
-            System.out.print("\t");
+            System.out.print("\t\t");
         }
         System.out.println("Consumer " + id + " is starting...");
 
@@ -35,7 +35,7 @@ public class Consumer implements Runnable {
             if (heap.isEmpty()) {
                 if (empty == 1) {
                     for (int i = 0; i < id; i++) {
-                        System.out.print("\t");
+                        System.out.print("\t\t");
                     }
                     System.out.println("Consumer " + id + " is idle...");
                     empty = 0;
@@ -66,14 +66,14 @@ public class Consumer implements Runnable {
                 // Print out when the process finished
                 Date d1 = new Date();
                 for (int i = 0; i < id; i++) {
-                    System.out.print("\t");
+                    System.out.print("\t\t");
                 }
                 System.out.println("Consumer " + id + " finished Process: " + myProcess.getProcessID() + " on " + d1);
                 numComplete++;
             }
         }
         for (int i = 0; i < id; i++) {
-            System.out.print("\t");
+            System.out.print("\t\t");
         }
         System.out.println("Consumer " + id + " exiting - completed " + numComplete + " processes...");
     }
