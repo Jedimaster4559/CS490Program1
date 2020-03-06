@@ -25,3 +25,4 @@ hs_err_pid*
 # ignore IntelliJ specific directories and files
 /.idea/
 /.out/
+/out/production/CS490Program1/META-INF/CS490Program1.kotlin_module
