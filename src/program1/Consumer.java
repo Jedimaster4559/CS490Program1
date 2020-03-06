@@ -68,7 +68,7 @@ public class Consumer implements Runnable {
                 for (int i = 0; i < id; i++) {
                     System.out.print("\t\t");
                 }
-                System.out.println("Consumer " + id + " finished Process: " + myProcess.getProcessID() + " on " + d1);
+                System.out.println("Consumer " + id + " finished Process: " + myProcess.getProcessID() + " on " + d1 + " with priority " + myProcess.getPriority());
                 numComplete++;
             }
         }
